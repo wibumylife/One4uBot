@@ -37,9 +37,9 @@ KANGING_STR = [
 ]
 
 
-@register(outgoing=True, pattern="^.kang")
+@register(outgoing=True, pattern="^.ambil")
 async def kang(args):
-    """ For .kang command, kangs stickers or creates new ones. """
+    """ For .ambil command, kangs stickers or creates new ones. """
     user = await bot.get_me()
     if not user.username:
         user.username = user.first_name
@@ -102,8 +102,8 @@ async def kang(args):
                 # pack
                 emoji = splat[1]
 
-        packname = f"a{user.id}_by_{user.username}_{pack}"
-        packnick = f"@{user.username}'s kang pack Vol.{pack}"
+         packname = f"{user.username}{pack}"
+        packnick = f"{user.first_name} #{pack}"
         cmd = "/newpack"
         file = io.BytesIO()
 
@@ -134,8 +134,8 @@ async def kang(args):
                 x = await conv.get_response()
                 while "120" in x.text:
                     pack += 1
-                    packname = f"a{user.id}_by_{user.username}_{pack}"
-                    packnick = f"@{user.username}'s kang pack Vol.{pack}"
+                     packname = f"{user.username}{pack}"
+                     packnick = f"{user.first_name} #{pack}"
                     await args.edit(
                         "`Switching to Pack "
                         + str(pack)
@@ -253,8 +253,8 @@ async def kang(args):
                 await bot.send_read_acknowledge(conv.chat_id)
 
         await args.edit(
-            f"`Sticker kanged successfully!`\
-            \nPack can be found [here](t.me/addstickers/{packname})",
+            f"`Sticker Added successfully :*`\
+            \nUntuk lihat stickernya [Klik Disini](t.me/addstickers/{packname})",
             parse_mode="md",
         )
 
@@ -363,13 +363,13 @@ async def sticker_to_png(sticker):
 
 CMD_HELP.update(
     {
-        "stickers": ".kang\
-\nUsage: Reply .kang to a sticker or an image to kang it to your userbot pack.\
+        "stickers": ".ambil\
+\nUsage: Reply .ambil to a sticker or an image to kang it to your userbot pack.\
 \n\n.kang [emoji('s)]\
-\nUsage: Works just like .kang but uses the emoji('s) you picked.\
-\n\n.kang [number]\
+\nUsage: Works just like .ambil but uses the emoji('s) you picked.\
+\n\n.ambil [number]\
 \nUsage: Kang's the sticker/image to the specified pack but uses 🤔 as emoji.\
-\n\n.kang [emoji('s)] [number]\
+\n\n.ambil [emoji('s)] [number]\
 \nUsage: Kang's the sticker/image to the specified pack and uses the emoji('s) you picked.\
 \n\n.stkrinfo\
 \nUsage: Gets info about the sticker pack.\
