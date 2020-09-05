@@ -102,7 +102,7 @@ async def kang(args):
                 # pack
                 emoji = splat[1]
 
-         packname = f"{user.username}{pack}"
+        packname = f"{user.username}{pack}"
         packnick = f"{user.first_name} #{pack}"
         cmd = "/newpack"
         file = io.BytesIO()
@@ -134,8 +134,8 @@ async def kang(args):
                 x = await conv.get_response()
                 while "120" in x.text:
                     pack += 1
-                     packname = f"{user.username}{pack}"
-                     packnick = f"{user.first_name} #{pack}"
+                    packname = f"{user.username}{pack}"
+                    packnick = f"{user.first_name} Animated #{pack}"
                     await args.edit(
                         "`Switching to Pack "
                         + str(pack)
@@ -365,7 +365,7 @@ CMD_HELP.update(
     {
         "stickers": ".ambil\
 \nUsage: Reply .ambil to a sticker or an image to kang it to your userbot pack.\
-\n\n.kang [emoji('s)]\
+\n\n.ambil [emoji('s)]\
 \nUsage: Works just like .ambil but uses the emoji('s) you picked.\
 \n\n.ambil [number]\
 \nUsage: Kang's the sticker/image to the specified pack but uses 🤔 as emoji.\
